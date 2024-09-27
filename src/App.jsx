@@ -16,7 +16,9 @@ function App() {
   useEffect(() => {
     const getEvents = async () => {
       try {
-        const res = await fetch("http://localhost:3000/events");
+        // const res = await fetch("http://localhost:3000/events");
+        const res = await fetch("https://eltech2back.vercel.app/events");
+
         const data = await res.json();
         setEvents(data.data);
       } catch (e) {}
