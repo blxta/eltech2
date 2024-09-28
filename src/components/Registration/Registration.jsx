@@ -34,8 +34,8 @@ function Registration() {
         `https://editech-backend.vercel.app/visitorr?id=${id}&email=${formData.email}`
       );
       const data = await res.json();
-
-      if (data.data === 0) {
+      if (data === 0) {
+        console.log("weare here");
         const response = await fetch(
           "https://editech-backend.vercel.app/visitor",
           {
