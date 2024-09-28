@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "./Partisipants.css";
 
 function Partisipant({ name, email }) {
   return (
     <>
-      <div>{name}</div>
-      <div> {email}</div>
+      <div className="participant-name">{name}</div>
+      <div className="participant-email">{email}</div>
     </>
   );
 }
@@ -31,13 +32,16 @@ function Partisipants() {
 
   return (
     <>
-      {console.log("wr here")}
-
-      {partisipants.map((part) => (
-        <li key={part.id}>
-          <Partisipant {...part}></Partisipant>
-        </li>
-      ))}
+      <div className="participants-container">
+        <h2>"Awesome Event" participants</h2>
+        <ul className="participants-list">
+          {partisipants.map((part) => (
+            <li key={part.id}>
+              <Partisipant {...part}></Partisipant>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }

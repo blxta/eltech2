@@ -1,0 +1,51 @@
+.participants-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd; /* Граница контейнера */
+  border-radius: 8px; /* Скругленные углы */
+  background-color: #f9f9f9;
+}
+
+.participants-container h2 {
+  font-size: 28px; /* Размер заголовка */
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.participants-list {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Адаптивная сетка */
+  gap: 20px;
+  list-style-type: none; /* Убираем маркеры списка */
+  padding: 0;
+}
+
+.participants-list li {
+  background-color: white; /* Белый фон для карточки */
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Скругленные углы */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out; /* Легкая анимация при наведении */
+}
+
+.participants-list li:hover {
+  transform: translateY(-5px); /* Легкое поднятие карточки при наведении */
+}
+
+.participant-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.participant-email {
+  font-size: 14px;
+  color: #666;
+}

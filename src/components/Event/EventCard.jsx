@@ -3,7 +3,7 @@ import { Routes, Route, Link, Outlet } from "react-router-dom";
 import Registration from "../Registration/Registration";
 import Partisipants from "../Partisipants/Partisipants";
 
-function Event({ id: idEvent, title, description, event_date, organizer }) {
+function EventCard({ id: idEvent, title, description, event_date, organizer }) {
   return (
     <>
       <div>
@@ -14,10 +14,9 @@ function Event({ id: idEvent, title, description, event_date, organizer }) {
       <div>{organizer}</div>
 
       <Link to={`/event/${idEvent}/reg`}>Reg </Link>
-      <br></br>
       <Link to={`/event/${idEvent}/part`}>View</Link>
     </>
   );
 }
 
-export default Event;
+export default EventCard;

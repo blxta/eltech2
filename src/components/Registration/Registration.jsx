@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import "./Registration.css";
 
 function Registration() {
   const { id } = useParams();
@@ -60,57 +61,63 @@ function Registration() {
 
   return (
     <>
-      <div>Event registration</div>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="name"
-          placeholder="Full name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <input
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <input
-          name="dateOfBirth"
-          placeholder="Date of birth"
-          value={formData.dateOfBirth}
-          onChange={handleChange}
-        />
-        <input
-          id="social"
-          type="radio"
-          name="source"
-          value="social"
-          checked={selectedValue === "social"}
-          onChange={handleChange1}
-        />
-        <label htmlFor="social">Social media</label>
+      <div className="reg-container">
+        <h1>Event registration</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            name="name"
+            type="text" // Добавьте type="text"
+            placeholder="Full name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <input
+            name="email"
+            type="email" // Добавьте type="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <input
+            name="dateOfBirth"
+            type="date"
+            value={formData.dateOfBirth}
+            onChange={handleChange}
+          />
+          <div className="radio-group">
+            <input
+              id="social"
+              type="radio"
+              name="source"
+              value="social"
+              checked={selectedValue === "social"}
+              onChange={handleChange1}
+            />
+            <label htmlFor="social">Social media</label>
 
-        <input
-          id="friends"
-          type="radio"
-          name="source"
-          value="friends"
-          checked={selectedValue === "friends"}
-          onChange={handleChange1}
-        />
-        <label htmlFor="friends">Friends</label>
+            <input
+              id="friends"
+              type="radio"
+              name="source"
+              value="friends"
+              checked={selectedValue === "friends"}
+              onChange={handleChange1}
+            />
+            <label htmlFor="friends">Friends</label>
 
-        <input
-          id="myself"
-          type="radio"
-          name="source"
-          value="myself"
-          checked={selectedValue === "myself"}
-          onChange={handleChange1}
-        />
-        <label htmlFor="myself">Found myself</label>
-        <button type="submit">Reg</button>
-      </form>
+            <input
+              id="myself"
+              type="radio"
+              name="source"
+              value="myself"
+              checked={selectedValue === "myself"}
+              onChange={handleChange1}
+            />
+            <label htmlFor="myself">Found myself</label>
+          </div>
+          <button type="submit">Reg</button>
+        </form>
+      </div>
     </>
   );
 }

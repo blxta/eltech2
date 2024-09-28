@@ -1,0 +1,133 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9; /* Фон страницы */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd; /* Граница контейнера */
+  border-radius: 8px; /* Скругленные углы */
+  background-color: #f9f9f9;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px; /* Увеличенный размер заголовка */
+  color: #333;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* Сетка из 3 колонок для большего пространства */
+  gap: 20px;
+}
+
+.event-card {
+  background-color: white; /* Белый фон для карточек */
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Скругленные углы */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out; /* Анимация при наведении */
+}
+
+.event-card:hover {
+  transform: translateY(-5px); /* Легкое поднятие карточки при наведении */
+}
+
+.event-card h2 {
+  font-size: 20px; /* Увеличен размер заголовка карточки */
+  margin: 10px 0;
+  color: #333;
+}
+
+.event-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Размещение кнопок Reg и Visit на одной линии */
+.event-card .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Пробел между кнопками */
+  margin-top: 10px;
+}
+
+.event-card a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease; /* Анимация смены цвета кнопки */
+}
+
+.event-card a:hover {
+  background-color: #0056b3;
+}
+
+/* Стилизация пагинации */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.pagination a {
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 50%; /* Скругленные до круга */
+  background-color: #e9ecef;
+  color: #007bff;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Плавная анимация для цвета и фона */
+}
+
+.pagination a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination .current {
+  background-color: #007bff;
+  color: white;
+  pointer-events: none; /* Отключить клик для текущей страницы */
+  font-weight: bold;
+}
+
+.pagination a.disabled {
+  pointer-events: none; /* Отключить клик для неактивных кнопок */
+  opacity: 0.5;
+}
+
+/* Дополнительные стили для кнопок "Previous" и "Next" */
+.pagination .prev,
+.pagination .next {
+  background-color: transparent;
+  color: #007bff;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px; /* Скругленные углы для этих кнопок */
+  border: 1px solid #007bff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .prev:hover,
+.pagination .next:hover {
+  background-color: #007bff;
+  color: white;
+}
