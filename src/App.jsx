@@ -12,24 +12,32 @@ function App() {
   const [events, setEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(5);
+  // let indexOfLastRecord = 0;
+  // let indexOfFirstRecord = 0;
+  // let currentRecords = 0;
+  // let nPages = 0;
 
   useEffect(() => {
     const getEvents = async () => {
       try {
-        // const res = await fetch("http://localhost:3000/events");
-        const res = await fetch("https://eltech2back.vercel.app/events");
+        //const res = await fetch("http://localhost:3080/events");
+        const res = await fetch("https://editech-backend.vercel.app/events");
 
         const data = await res.json();
-        setEvents(data.data);
+        // indexOfLastRecord = currentPage * recordsPerPage;
+        // indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+        // currentRecords = events.slice(indexOfFirstRecord, indexOfLastRecord);
+        // nPages = Math.ceil(events.length / recordsPerPage);
+        setEvents(data);
       } catch (e) {}
     };
     getEvents();
   }, []);
 
-  const indexOfLastRecord = currentPage * recordsPerPage;
-  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-  const currentRecords = events.slice(indexOfFirstRecord, indexOfLastRecord);
-  const nPages = Math.ceil(events.length / recordsPerPage);
+  // const indexOfLastRecord = currentPage * recordsPerPage;
+  // const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  // const currentRecords = events.slice(indexOfFirstRecord, indexOfLastRecord);
+  // const nPages = Math.ceil(events.length / recordsPerPage);
 
   const location = useLocation();
 
@@ -38,13 +46,15 @@ function App() {
     <>
       {!isEventDetailPage && (
         <>
-          <Sort setEvents={setEvents} events={events}></Sort>
-          <Mapevents events={currentRecords}></Mapevents>
-          <Pagination
+          {/* <Sort setEvents={setEvents} events={events}></Sort> */}
+          {/* <Mapevents events={currentRecords}></Mapevents> */}
+          {console.log("events")}
+          <Mapevents events={events}></Mapevents>
+          {/* <Pagination
             nPages={nPages}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
-          />
+          /> */}
         </>
       )}
 

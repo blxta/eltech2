@@ -7,11 +7,15 @@ function Mapevents({ events }) {
     <>
       <div>Events</div>
       <div>
-        {events.map((eve) => (
-          <div key={eve.id}>
-            <Event {...eve}></Event>
-          </div>
-        ))}
+        {!!events ? (
+          events.map((eve) => (
+            <div key={eve.id}>
+              <Event {...eve}></Event>
+            </div>
+          ))
+        ) : (
+          <p>Loading</p>
+        )}
       </div>
     </>
   );
