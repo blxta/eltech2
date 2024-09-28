@@ -31,18 +31,21 @@ function Registration() {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/visitorr?id=${id}&email=${formData.email}`
+        `https://editech-backend.vercel.app/visitorr?id=${id}&email=${formData.email}`
       );
       const data = await res.json();
 
       if (data.data === 0) {
-        const response = await fetch("http://localhost:3000/visitor", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData), // Отправляем данные как JSON
-        });
+        const response = await fetch(
+          "https://editech-backend.vercel.app/visitor",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData), // Отправляем данные как JSON
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Ошибка при отправке данных");

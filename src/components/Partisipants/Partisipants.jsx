@@ -17,9 +17,13 @@ function Partisipants() {
   useEffect(() => {
     const getPartisipants = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/event?id=${id}`);
+        const res = await fetch(
+          `https://editech-backend.vercel.app/event?id=${id}`
+        );
         const data = await res.json();
-        setPartisipants(data.data);
+        console.log("part");
+        console.log(data);
+        setPartisipants(data);
       } catch (e) {}
     };
     getPartisipants();
@@ -27,7 +31,8 @@ function Partisipants() {
 
   return (
     <>
-      зф
+      {console.log("wr here")}
+
       {partisipants.map((part) => (
         <li key={part.id}>
           <Partisipant {...part}></Partisipant>
