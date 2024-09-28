@@ -76,22 +76,27 @@ h1 {
   background-color: #0056b3;
 }
 
-/* Стилизация пагинации */
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  list-style-type: none; /* Убираем точки для списка */
+  padding: 0; /* Убираем отступы у списка */
+}
+
+.pagination li {
+  margin: 0 5px; /* Устанавливаем отступы между элементами */
 }
 
 .pagination a {
-  text-decoration: none;
   padding: 10px 15px;
   margin: 0 5px;
-  border-radius: 50%; /* Скругленные до круга */
+  border-radius: 5px; /* Скругленные углы */
   background-color: #e9ecef;
   color: #007bff;
   font-size: 16px;
+
   font-weight: bold;
   transition: background-color 0.3s ease, color 0.3s ease; /* Плавная анимация для цвета и фона */
 }
@@ -101,11 +106,9 @@ h1 {
   color: white;
 }
 
-.pagination .current {
-  background-color: #007bff;
-  color: white;
-  pointer-events: none; /* Отключить клик для текущей страницы */
-  font-weight: bold;
+.pagination .active a {
+  background-color: #007bff; /* Цвет фона для активной страницы */
+  color: white; /* Цвет текста для активной страницы */
 }
 
 .pagination a.disabled {

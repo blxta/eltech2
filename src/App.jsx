@@ -5,17 +5,12 @@ import Registration from "./components/Registration/Registration";
 import Partisipants from "./components/Partisipants/Partisipants";
 import EventsBoard from "./components/Event/EventsBoard";
 import Pagination from "./components/Pagination";
-import Sort from "./components/Sort";
 import "./App.css";
 
 function App() {
   const [events, setEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(6);
-  // let indexOfLastRecord = 0;
-  // let indexOfFirstRecord = 0;
-  // let currentRecords = 0;
-  // let nPages = 0;
 
   useEffect(() => {
     const getEvents = async () => {
@@ -43,9 +38,7 @@ function App() {
       {!isEventDetailPage && events && (
         <>
           <div className="container">
-            {/* <Sort setEvents={setEvents} events={events}></Sort> */}
             <EventsBoard events={currentRecords}></EventsBoard>
-            {/* <Mapevents events={events}></Mapevents> */}
             <Pagination
               nPages={nPages}
               currentPage={currentPage}

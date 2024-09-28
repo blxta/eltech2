@@ -22,8 +22,6 @@ function Partisipants() {
           `https://editech-backend.vercel.app/event?id=${id}`
         );
         const data = await res.json();
-        console.log("part");
-        console.log(data);
         setPartisipants(data);
       } catch (e) {}
     };
@@ -32,16 +30,21 @@ function Partisipants() {
 
   return (
     <>
-      <div className="participants-container">
-        <h2>"Awesome Event" participants</h2>
-        <ul className="participants-list">
-          {partisipants.map((part) => (
-            <li key={part.id}>
-              <Partisipant {...part}></Partisipant>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {partisipants.length > 0 ? (
+        <div className="participants-container">
+          <h2>{partisipants[0].title} participants</h2>
+          {console.log(partisipants[0])}
+          <ul className="participants-list">
+            {partisipants.map((part) => (
+              <li key={part.id}>
+                <Partisipant {...part}></Partisipant>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p>Loading</p>
+      )}
     </>
   );
 }

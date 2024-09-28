@@ -35,9 +35,7 @@ function Registration() {
         `https://editech-backend.vercel.app/visitorr?id=${id}&email=${formData.email}`
       );
       const data = await res.json();
-      console.log(data.data);
       if (data.data === 0) {
-        console.log("weare here");
         const response = await fetch(
           "https://editech-backend.vercel.app/visitor",
           {
@@ -49,13 +47,24 @@ function Registration() {
           }
         );
 
+        // const result = await response.json();
         if (!response.ok) {
-          throw new Error("Ошибка при отправке данных");
+          throw new Error("Error");
         }
-        const result = await response.json();
-        alert("register");
-        // // navigate(-1);
-      } else alert("registerd");
+
+        alert("Registred!");
+        setFormData({
+          name: "",
+          email: "",
+          dateOfBirth: "",
+          source: "social", // или другое значение по умолчанию
+          eventId: -1,
+        });
+        navigate(-1);
+      } else {
+        alert("Already registered at this event");
+        navigate(-1);
+      }
     } catch (err) {}
   };
 
@@ -115,7 +124,7 @@ function Registration() {
             />
             <label htmlFor="myself">Found myself</label>
           </div>
-          <button type="submit">Reg</button>
+          <button type="submit">Registration</button>
         </form>
       </div>
     </>
